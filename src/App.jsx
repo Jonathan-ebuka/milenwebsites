@@ -11,21 +11,24 @@ import Terms from "./pages/Terms"
 import Stores from "./pages/Stores"
 import Ethical from "./pages/Ethical"
 import Sizes from "./pages/Sizes"
-import SecondLayout from "./layouts/SecondLayout"
+import MinLay from "./layouts/MinLay"
+import SinglePage from "./pages/SinglePage"
+// import SecondLayout from "./layouts/SecondLayout"
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path='/' element={<MainLayout />}>
-        <Route index element={<Homepage />} />
-        <Route path='/shipping' element={<Shipping />} />
-        <Route path='/terms' element={<Terms />} />
+        <Route path='/' element={<Homepage />} />
       </Route>
-
-      <Route element={<SecondLayout />}>
+      ,
+      <Route element={<MinLay />}>
         <Route path='/stores' element={<Stores />} />,
+        <Route path='/shipping' element={<Shipping />} />,
+        <Route path='/terms' element={<Terms />} />,
         <Route path='/ethical' element={<Ethical />} />,
         <Route path='/sizes' element={<Sizes />} />
+        <Route path='/product' element={<SinglePage />} />
       </Route>
     </Route>
   )

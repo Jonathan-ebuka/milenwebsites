@@ -1,9 +1,5 @@
-
-
 const Terms = () => {
-  return (
-    <div>Terms</div>
-  )
+  return <div className='h-[100vh] bg-red-500'>Terms</div>
 }
 
 export default Terms

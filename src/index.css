@@ -2,13 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/* main {
-  width: 100%;
-  height: 100vh;
+.embla {
+  overflow: hidden;
 }
-
-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-} */
+.embla__container {
+  display: flex;
+}
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+}

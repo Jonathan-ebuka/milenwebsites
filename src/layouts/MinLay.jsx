@@ -1,15 +1,14 @@
 // import UniNav from "@/components/UniNav"
 import NavBar from "@/components/NavBar"
 import { Outlet } from "react-router-dom"
-import {} from "../index.css"
 
-const MainLayout = () => {
+const MinLay = () => {
   return (
     <>
-      <NavBar />
+      <NavBar color={`text-black`} text={`text-black`} />
       <Outlet />
     </>
   )
 }
 
-export default MainLayout
+export default MinLay

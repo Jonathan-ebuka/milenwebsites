@@ -1,48 +1,123 @@
+import { Dialog, DialogPanel } from "@headlessui/react"
 import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet"
-import { Bars3Icon } from "@heroicons/react/24/solid"
+  Bars3Icon,
+  // ChevronDownIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/solid"
+import { useState } from "react"
 import { Link } from "react-router-dom"
+import { EnvelopeIcon } from "@heroicons/react/24/solid"
+import { FaPinterest, FaTiktok } from "react-icons/fa"
+import { FiInstagram } from "react-icons/fi"
 
-const MobileNav = () => {
+const MobileNav = ({ text = "text-white" }) => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  // const toggleNav = () => {
+  //   if (mobileMenuOpen) {
+  //     setMobileMenuOpen(false)
+  //   } else {
+  //     setMobileMenuOpen(true)
+  //   }
+  // }
+
+  const handleClick = () => {
+    setMobileMenuOpen(false)
+  }
+
   return (
-    <div className='flex lg:hidden '>
-      <Sheet>
-        <SheetTrigger>
-          <Bars3Icon className='h-6 w-6 text-white' aria-hidden='true' />
-        </SheetTrigger>
-        <SheetContent side={"left"} className='w-full bg-white'>
-          <SheetHeader>
-            <SheetTitle className='font-bold py-10'>
+    <div className='flex lg:hidden'>
+      <button
+        className={`${text}`}
+        type='button'
+        onClick={() => setMobileMenuOpen(true)}
+      >
+        <Bars3Icon className='h-6 w-6' aria-hidden='true' />
+      </button>
+
+      <Dialog
+        as='div'
+        className='lg:hidden '
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+      >
+        <DialogPanel className='fixed inset-y-0 left-0 w-[100%] overflow-y-auto bg-white px-6 py-6 z-50'>
+          <div className='h-[85vh] flex flex-col justify-between'>
+            <div className='flex items-center justify-between'>
               <Link to='/'>
-                <h2 className='text-black font-bold text-3xl mb-20'>MILEN.</h2>
+                <h2 className='text-black font-bold text-3xl '>MILEN.</h2>
               </Link>
-            </SheetTitle>
-            <SheetDescription className='flex flex-col gap-6  text-center'>
-              <Link to='/stores' className='text-black font-bold text-lg'>
+
+              <button
+                type='button'
+                className=' text-black'
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <XMarkIcon className='h-6 w-6' aria-hidden='true' />
+              </button>
+            </div>
+
+            <div className='flex flex-col gap-3 items-center'>
+              <Link
+                to='/stores'
+                onClick={handleClick}
+                className='text-black font-bold text-lg'
+              >
                 SHOP
               </Link>
-              <Link to='/sizes' className='text-black font-bold text-lg'>
+              <Link
+                to='/sizes'
+                onClick={handleClick}
+                className='text-black font-bold text-lg'
+              >
                 SIZE GUIDE
               </Link>
-              <Link to='/ethical' className='text-black font-bold text-lg'>
+              <Link
+                to='/ethical'
+                onClick={handleClick}
+                className='text-black font-bold text-lg'
+              >
                 ETHICAL
               </Link>
-              <Link to='/shipping' className='text-black font-bold text-lg'>
+              <Link
+                to='/shipping'
+                onClick={handleClick}
+                className='text-black font-bold text-lg'
+              >
                 SHIPPING PRICES
               </Link>
-              <Link to='/terms' className='text-black font-bold text-lg'>
+              <Link
+                to='/terms'
+                onClick={handleClick}
+                className='text-black font-bold text-lg'
+              >
                 TERMS
               </Link>
-            </SheetDescription>
-          </SheetHeader>
-        </SheetContent>
-      </Sheet>
+            </div>
+
+            <div className='flex justify-center gap-7'>
+              <Link to='/'>
+                <FaPinterest fontSize='1.5em' color='black' />
+              </Link>
+
+              <Link to='/'>
+                <EnvelopeIcon
+                  className='h-6 w-6 text-black'
+                  aria-hidden='true'
+                />
+              </Link>
+
+              <Link to='/'>
+                <FiInstagram fontSize='1.5em' color='black' />
+              </Link>
+
+              <Link to='/'>
+                <FaTiktok fontSize='1.5em' color='black' />
+              </Link>
+            </div>
+          </div>
+        </DialogPanel>
+      </Dialog>
     </div>
   )
 }
