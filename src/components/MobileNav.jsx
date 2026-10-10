@@ -42,7 +42,7 @@ const MobileNav = ({ text = "text-white" }) => {
         onClose={setMobileMenuOpen}
       >
         <DialogPanel className='fixed inset-y-0 left-0 w-[100%] overflow-y-auto bg-white px-6 py-6 z-50'>
-          <div className='h-[85vh] flex flex-col justify-between'>
+          <div className='h-[calc(100svh-3rem)] flex flex-col justify-between'>
             <div className='flex items-center justify-between'>
               <Link to='/'>
                 <h2 className='text-black font-bold text-3xl '>MILEN.</h2>

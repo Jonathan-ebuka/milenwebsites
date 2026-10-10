@@ -52,7 +52,7 @@ const NavBar = ({ color = "text-white" }) => {
               {/* <span className='rounded-[100%] bg-black p-1 text-white'>3</span> */}
               <ShoppingBagIcon className='h-6 w-6 ' aria-hidden='true' />
             </SheetTrigger>
-            <SheetContent className='bg-white w-[80%] h-[100dvh] flex flex-col p-0 gap-0'>
+            <SheetContent className='bg-white w-[80%] h-lvh flex flex-col p-0 gap-0'>
               <SheetHeader className='shrink-0 px-6 pt-6'>
                 <SheetTitle className='text-md leading-[17px] font-normal uppercase w-[100%] pb-4 flex items-center justify-center border-b-2 border-black'>
                   YOUR CART
@@ -108,7 +108,7 @@ const NavBar = ({ color = "text-white" }) => {
                   </div>
 
                   {/* CHECK OUT - always pinned to the bottom */}
-                  <div className='shrink-0 w-full border-t px-6 pt-4 pb-[max(1.5rem,env(safe-area-inset-bottom))] text-sm'>
+                  <div className='shrink-0 w-full border-t px-6 pt-4 pb-[calc(100lvh-100dvh+max(1.5rem,env(safe-area-inset-bottom)))] text-sm'>
                     <div className='flex items-center justify-between mb-2'>
                       <h3 className='font-bold '>SUBTOTAL:</h3>
                       <span className='font-bold '>$220,000</span>
