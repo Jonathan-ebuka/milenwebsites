@@ -7,8 +7,16 @@ import videoBg from "../assets/megan_sizzle.mp4"
 
 const Homepage = () => {
   return (
-    <main className='h-[calc(100svh-3.5rem)] w-[100%]'>
-      <div className='px-10 w-[100%] h-full flex items-end justify-between p-10 pb-[calc(6.5rem+env(safe-area-inset-bottom))] lg:pb-10 -mb-1'>
+    <main className='fixed inset-x-0 top-0 h-lvh overflow-hidden'>
+      <video
+        src={videoBg}
+        autoPlay
+        loop
+        muted
+        className='absolute inset-0 w-full h-full object-cover'
+      />
+
+      <div className='relative px-10 w-[100%] h-full flex items-end justify-between p-10 pb-[calc(100lvh-100dvh+6.5rem+env(safe-area-inset-bottom))] lg:pb-10'>
         <div className='text-center'>
           <h2 className='text-2xl text-white font-bold text-center'>
             NEW COLLECTIONS
@@ -40,16 +48,7 @@ const Homepage = () => {
             <FaTiktok fontSize='1.5em' color='white' />
           </Link>
         </div>
-      </div>
-
-      <video
-        src={videoBg}
-        autoPlay
-        loop
-        muted
-        className='absolute top-0 left-0 -z-10 w-[100%] h-[100vh] object-cover'
-      />
-    </main>
+      </div>    </main>
   )
 }
 
