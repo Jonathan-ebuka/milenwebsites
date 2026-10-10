@@ -8,7 +8,7 @@ import videoBg from "../assets/megan_sizzle.mp4"
 const Homepage = () => {
   return (
     <main className='h-[calc(100svh-3.5rem)] w-[100%]'>
-      <div className='px-10 w-[100%] h-full flex items-end justify-between p-10 pb-[max(2.5rem,env(safe-area-inset-bottom))] -mb-1'>
+      <div className='px-10 w-[100%] h-full flex items-end justify-between p-10 pb-[calc(6.5rem+env(safe-area-inset-bottom))] lg:pb-10 -mb-1'>
         <div className='text-center'>
           <h2 className='text-2xl text-white font-bold text-center'>
             NEW COLLECTIONS

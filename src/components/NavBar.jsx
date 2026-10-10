@@ -108,7 +108,7 @@ const NavBar = ({ color = "text-white" }) => {
                   </div>
 
                   {/* CHECK OUT - always pinned to the bottom */}
-                  <div className='shrink-0 w-full border-t px-6 pt-4 pb-[calc(100lvh-100dvh+max(1.5rem,env(safe-area-inset-bottom)))] text-sm'>
+                  <div className='shrink-0 w-full border-t px-6 pt-4 pb-[max(6.5rem,calc(100lvh-100dvh+1.5rem+env(safe-area-inset-bottom)))] lg:pb-6 text-sm'>
                     <div className='flex items-center justify-between mb-2'>
                       <h3 className='font-bold '>SUBTOTAL:</h3>
                       <span className='font-bold '>$220,000</span>
