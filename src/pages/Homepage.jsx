@@ -4,10 +4,35 @@ import { FaPinterest, FaTiktok } from "react-icons/fa"
 import { Link } from "react-router-dom"
 import { ArrowRightIcon } from "@heroicons/react/24/outline"
 import videoBg from "../assets/megan_sizzle.mp4"
+import { useEffect } from "react"
 
 const Homepage = () => {
+  // The home page is a single still screen: lock page scrolling while it's open.
+  // The hero is absolutely positioned (not fixed) so the video can run behind
+  // mobile browsers' floating bottom toolbars instead of leaving a blank strip.
+  useEffect(() => {
+    const root = document.documentElement
+    const { body } = document
+    const prev = [
+      root.style.overflow,
+      body.style.overflow,
+      root.style.overscrollBehavior,
+      root.style.backgroundColor,
+    ]
+    root.style.overflow = "hidden"
+    body.style.overflow = "hidden"
+    root.style.overscrollBehavior = "none"
+    root.style.backgroundColor = "black"
+    return () => {
+      root.style.overflow = prev[0]
+      body.style.overflow = prev[1]
+      root.style.overscrollBehavior = prev[2]
+      root.style.backgroundColor = prev[3]
+    }
+  }, [])
+
   return (
-    <main className='fixed inset-x-0 top-0 h-lvh overflow-hidden'>
+    <main className='absolute inset-x-0 top-0 h-lvh overflow-hidden'>
       <video
         src={videoBg}
         autoPlay
