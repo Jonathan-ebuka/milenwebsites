@@ -4,11 +4,44 @@ import { FaPinterest, FaTiktok } from "react-icons/fa"
 import { Link } from "react-router-dom"
 import { ArrowRightIcon } from "@heroicons/react/24/outline"
 import videoBg from "../assets/megan_sizzle.mp4"
+import { useEffect } from "react"
 
 const Homepage = () => {
+  // The home page is a single still screen: lock page scrolling while it's open.
+  // The hero is absolutely positioned (not fixed) so the video can run behind
+  // mobile browsers' floating bottom toolbars instead of leaving a blank strip.
+  useEffect(() => {
+    const root = document.documentElement
+    const { body } = document
+    const prev = [
+      root.style.overflow,
+      body.style.overflow,
+      root.style.overscrollBehavior,
+      root.style.backgroundColor,
+    ]
+    root.style.overflow = "hidden"
+    body.style.overflow = "hidden"
+    root.style.overscrollBehavior = "none"
+    root.style.backgroundColor = "black"
+    return () => {
+      root.style.overflow = prev[0]
+      body.style.overflow = prev[1]
+      root.style.overscrollBehavior = prev[2]
+      root.style.backgroundColor = prev[3]
+    }
+  }, [])
+
   return (
-    <main className=' h-[90vh] w-[100%]'>
-      <div className=' px-10 w-[100%] h-[90vh] flex items-end justify-between p-10 -mb-1'>
+    <main className='absolute inset-x-0 top-0 h-lvh overflow-hidden'>
+      <video
+        src={videoBg}
+        autoPlay
+        loop
+        muted
+        className='absolute inset-0 w-full h-full object-cover'
+      />
+
+      <div className='relative px-10 w-[100%] h-full flex items-end justify-between p-10 pb-[calc(100lvh-100dvh+6.5rem+env(safe-area-inset-bottom))] lg:pb-10'>
         <div className='text-center'>
           <h2 className='text-2xl text-white font-bold text-center'>
             NEW COLLECTIONS
@@ -40,16 +73,7 @@ const Homepage = () => {
             <FaTiktok fontSize='1.5em' color='white' />
           </Link>
         </div>
-      </div>
-
-      <video
-        src={videoBg}
-        autoPlay
-        loop
-        muted
-        className='absolute top-0 left-0 -z-10 w-[100%] h-[100vh] object-cover'
-      />
-    </main>
+      </div>    </main>
   )
 }
 
